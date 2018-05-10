@@ -1,0 +1,63 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+/* typo
+-------------------------------------------------- */
+body { font-family: 'Noto Sans JP'; }
+
+.memu {
+  font-size: 28px;
+}
+
+.copyright {
+  font-size: 12px;
+}
+
+body {
+  font-size: 14px;
+}
+
+/* color
+-------------------------------------------------- */
+body,
+.memu > li > a,
+.intro {
+  color: #333333;
+}
+
+.copyright {
+  color: #BDC1C0;
+}
+
+/* header
+-------------------------------------------------- */
+#page-header {
+  width: 135px;
+  position: absolute;
+  top: calc(135px + 32px);
+  right: 0;
+  transform: rotate(90deg);
+  transform-origin: right top;
+}
+
+.jp-name > span {
+  display: inline-block;
+  transform: rotate(-90deg);
+}
+
+/* footer
+-------------------------------------------------- */
+#page-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 24px;
+}
+
+/* menu
+-------------------------------------------------- */
+.memu {
+  position: absolute;
+  left: 0;
+  bottom: 68px;
+}

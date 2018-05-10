@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/* common
+-------------------------------------------------- */
+#page-wrapper {
+  position: relative;
+}
+
+body {
+  height: 100vh;
+}
+
+#barba-wrapper,
+.barba-container,
+#page-wrapper {
+  height: 100%;
+}
+
+#page-wrapper {
+  margin-left: 32px;
+  margin-right: 32px;
+}
