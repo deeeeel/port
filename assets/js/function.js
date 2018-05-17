@@ -56,22 +56,11 @@ PORTFOLIO.COMMON.canvas = {
     var a = 640 - 100,
         b = 480 - 100;
 
-    var diff = 3;
     this.opt.diffFlg = false;
 
-    var pattern = 0;
 
     for (var i = 0; i < this.opt.squereNum; i++) {
       ctx.beginPath();
-
-      //乱数定義
-      // var a = Math.floor( Math.random() * this.$canvas.width()),
-      //     b = Math.floor( Math.random() * this.$canvas.height());
-
-      // var a = this.$canvas.width() - 100,
-      //     b = this.$canvas.height() - 100
-
-
 
       //描画
       ctx.fillStyle = this.opt.color[colorIndex];
@@ -81,36 +70,20 @@ PORTFOLIO.COMMON.canvas = {
       a = a - this.opt.xDiff;
       b = b - this.opt.yDiff;
 
-      //x座標の変更
-      // if(this.opt.diffFlg){
-      //   this.opt.xDiff = this.opt.xDiff + 0.25;
-      // }else{
-      //   this.opt.xDiff = this.opt.xDiff - 0.25;
-      // }
-
-      // if(this.count == 2){
-      //   this.count = 0;
-      // }
-
-      switch (pattern) {
-        case 0:
-          this.opt.xDiff = this.opt.xDiff - 0.25;
-        case 1:
-          this.opt.xDiff = (this.opt.xDiff - 0.25) * -1;
-        case 2:
-
-        case 3:
-        break;
+      if(this.opt.diffFlg){
+        this.opt.xDiff = this.opt.xDiff + 0.25;
+      }else{
+        this.opt.xDiff = this.opt.xDiff - 0.25;
       }
 
       //x座標の変更のためのフラグ更新
       if(this.opt.xDiff === -3){
-        // this.opt.diffFlg = !this.opt.diffFlg
-        this.count++;
+        this.opt.diffFlg = !this.opt.diffFlg
+        this.opt.yDiff = this.opt.yDiff * -1;
       }
       if(this.opt.xDiff === 3){
-        // this.opt.diffFlg = !this.opt.diffFlg
-        this.count++;
+        this.opt.diffFlg = !this.opt.diffFlg
+        this.opt.yDiff = this.opt.yDiff * -1;
       }
 
 
