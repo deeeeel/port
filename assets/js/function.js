@@ -131,8 +131,36 @@ PORTFOLIO.COMMON.canvas = {
       }
     }
   }
-}
+};
+
+
+//=========================================================================
+// Encloser
+//=========================================================================
+PORTFOLIO.COMMON.encloser = {
+  init : function(){
+    this.setParameters();
+    this.encloseText();
+  },
+  setParameters : function(){
+    this.$textBox = $('.jsc-encloser');
+  },
+  encloseText : function(){
+    this.$textBox.each(function(){
+      var $target = $(this),
+          text = $target.text(),
+          textArray = text.split(''),
+          fixedText = "";
+
+      for (var i = 0; i < textArray.length; i++) {
+          fixedText = fixedText + "<span>" + textArray[i] + "</span>";
+      }
+      $target.html(fixedText);
+    });
+  }
+};
 
 $(function(){
   PORTFOLIO.COMMON.canvas.init();
+  PORTFOLIO.COMMON.encloser.init();
 });
