@@ -7,13 +7,14 @@ PORTFOLIO.COMMON = {};
 //=========================================================================
 PORTFOLIO.COMMON.canvas = {
   opt : {
-    squereNum : 2000,
+    squereNum : 6000,
     currentR : 0,
-    maxR : 2,
+    maxR : 5,
     minR : 0.5,
     rDiff : 0.25,
-    xDiff : 3,
+    xDiff : 10,
     yDiff : 5,
+    udDiff : 0.25,
     diffFlg : false,
     color : [
       '#c3c3c3',
@@ -31,6 +32,9 @@ PORTFOLIO.COMMON.canvas = {
     this.$window = $(window);
     this.$canvas = $('#canvas');
     this.ww = this.$window.width() * 2/3;
+
+    this.xdiff = this.opt.xDiff;
+    this.ydiff = this.opt.yDiff;
 
     this.count = 0;
   },
@@ -53,11 +57,14 @@ PORTFOLIO.COMMON.canvas = {
 
     var colorIndex = 0;
 
-    var a = 640 - 100,
-        b = 480 - 100;
+    var a = 640 ,
+        b = 480 ;
+
+    var aDash = a,
+        bDash = b;
+
 
     this.opt.diffFlg = false;
-
 
     for (var i = 0; i < this.opt.squereNum; i++) {
       ctx.beginPath();
@@ -67,27 +74,35 @@ PORTFOLIO.COMMON.canvas = {
       ctx.arc(a, b, this.opt.currentR, 0/180*Math.PI, 360/180*Math.PI);
       ctx.fill();
 
-      a = a - this.opt.xDiff;
+      a = a - this.xdiff;
       b = b - this.opt.yDiff;
 
       if(this.opt.diffFlg){
-        this.opt.xDiff = this.opt.xDiff + 0.25;
+        this.xdiff = this.xdiff + this.opt.udDiff;
       }else{
-        this.opt.xDiff = this.opt.xDiff - 0.25;
+        this.xdiff = this.xdiff - this.opt.udDiff;
       }
 
       //x座標の変更のためのフラグ更新
-      if(this.opt.xDiff === -3){
+      if(this.xdiff === -this.opt.xDiff){
         this.opt.diffFlg = !this.opt.diffFlg
         this.opt.yDiff = this.opt.yDiff * -1;
       }
-      if(this.opt.xDiff === 3){
+      if(this.xdiff === this.opt.xDiff){
         this.opt.diffFlg = !this.opt.diffFlg
         this.opt.yDiff = this.opt.yDiff * -1;
       }
 
+      if(aDash === a && bDash === b){
+        a = a - (Math.random() * ( 20 ) + 70);
+        a = Math.floor(a);
+        aDash = a;
 
 
+        b = b - (Math.random() * ( 30 ) + 20);
+        b = Math.floor(b);
+        bDash = b;
+      }
 
       //半径の更新
       if(this.opt.currentR < this.opt.minR){
