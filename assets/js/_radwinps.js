@@ -7,7 +7,7 @@ PORTFOLIO.COMMON = {};
 //=========================================================================
 PORTFOLIO.COMMON.canvas = {
   opt : {
-    squereNum : 6000,
+    squereNum : 8000,
     currentR : 0,
     maxR : 5,
     minR : 2,
@@ -57,7 +57,7 @@ PORTFOLIO.COMMON.canvas = {
 
     var colorIndex = 0;
 
-    var a = 640 ,
+    var a = 640+300 ,
         b = 480 ;
 
     var aDash = a,
@@ -94,7 +94,7 @@ PORTFOLIO.COMMON.canvas = {
 
         // this.opt.color[0] = '#c3c3c3';
       }
-      if(this.xdiff === this.opt.xDiff){
+      if(this.xdiff > this.opt.xDiff){
         this.opt.diffFlg = !this.opt.diffFlg
         this.opt.yDiff = this.opt.yDiff * -1;
 
@@ -122,7 +122,6 @@ PORTFOLIO.COMMON.canvas = {
 
         //単純系
         this.opt.currentR = Math.random() * ( 4 ) + 2;
-        console.log((Math.random() * ( 1 ) - 0.5));
 
         //偶然お産物
         // this.opt.currentR = this.opt.currentR - (Math.random() * ( 1 ) - 1);

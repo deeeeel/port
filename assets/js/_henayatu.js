@@ -119,13 +119,9 @@ PORTFOLIO.COMMON.canvas = {
       if(this.opt.currentR < this.opt.minR){
         this.opt.currentR = this.opt.maxR;
       }else{
-
-        //単純系
-        this.opt.currentR = Math.random() * ( 4 ) + 2;
-        console.log((Math.random() * ( 1 ) - 0.5));
-
-        //偶然お産物
-        // this.opt.currentR = this.opt.currentR - (Math.random() * ( 1 ) - 1);
+        // this.opt.currentR = this.opt.maxR;
+        this.opt.currentR = this.opt.currentR - (Math.random() * ( 1 ) - 1);
+        console.log((Math.random() * ( 1 ) - 0.25));
       }
 
       //カラーの更新
